@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 const MAXMNTLEN: usize = 468;
 const MAXVOLLEN: usize = 32;
 /*
@@ -16,6 +18,7 @@ const FSMAXSNAP: usize = 20;
  * read in from fs_csaddr (size fs_cssize) in addition to the
  * super block.
  */
+#[allow(dead_code)]
 struct CSum {
     cs_ndir: i32,        /* number of directories */
     cs_nbfree: i32,        /* number of free blocks */
@@ -23,6 +26,7 @@ struct CSum {
     cs_nffree: i32,        /* number of free frags */
 }
 
+#[allow(dead_code)]
 struct CSumTotal {
     cs_ndir: i64,        /* number of directories */
     cs_nbfree: i64,        /* number of free blocks */
@@ -34,7 +38,8 @@ struct CSumTotal {
 /*
  * Super block for an FFS file system.
  */
-struct fs<'a> {
+#[allow(dead_code)]
+struct FS<'a> {
     fs_firstfield: i32,        /* historic file system linked list, */
     fs_unused_1: i32,        /*     used for incore super blocks */
     fs_sblkno: i32,        /* addr of super-block / frags */
@@ -144,8 +149,4 @@ struct fs<'a> {
     fs_magic: i32,        /* magic number */
     fs_space: [u8; 1],        /* list of blocks for each rotation */
 /* actually longer */
-}
-
-fn main() {
-    println!("worked");
 }
